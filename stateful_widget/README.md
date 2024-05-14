@@ -1,3 +1,3 @@
 ## 📱 main.dart
 
-![stateful_widget](https://github.com/space-cap/Dart-Flutter-study-blog/assets/169221883/b2bfafb6-44f1-4c8b-92ed-6494846f1c39)
+![stateful_widget](https://github.com/space-cap/Dart-Flutter-study-blog/assets/169221883/8efc107c-4dd0-4060-8b71-e0f38c74047b)
