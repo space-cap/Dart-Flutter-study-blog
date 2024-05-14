@@ -33,3 +33,10 @@ doc/api/
 /hello_flutter/ios
 /hello_flutter/android
 /hello_flutter/test
+/stateful_widget/windows
+/stateful_widget/web
+/stateful_widget/macos
+/stateful_widget/ios
+/stateful_widget/linux
+/stateful_widget/android
+/stateful_widget/test
