@@ -26,3 +26,10 @@ doc/api/
 .flutter-plugins
 .flutter-plugins-dependencies
 *.bak
+/hello_flutter/windows
+/hello_flutter/web
+/hello_flutter/macos
+/hello_flutter/linux
+/hello_flutter/ios
+/hello_flutter/android
+/hello_flutter/test
