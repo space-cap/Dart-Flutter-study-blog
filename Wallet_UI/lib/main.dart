@@ -16,8 +16,10 @@ void main() {
 class App extends StatelessWidget {
   const App({super.key});
 
+  // 모든 Widget은 build 메소드를 구현해야한다.
   @override
   Widget build(BuildContext context) {
+    // material(구글) 또는 cupertino(ios) 스타일 위젯
     return MaterialApp(
       home: Scaffold(
         backgroundColor: const Color(0xFF181818),
@@ -25,6 +27,7 @@ class App extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 40),
             child:
+                // Row는 수평, Column은 수직
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               const SizedBox(
                 height: 20,
@@ -60,7 +63,7 @@ class App extends StatelessWidget {
                 height: 20,
               ),
               Text(
-                'total balance',
+                'Total Balance',
                 style: TextStyle(
                   fontSize: 22,
                   color: Colors.white.withOpacity(0.8),
@@ -84,7 +87,7 @@ class App extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: const [
                   Button(
-                    text: 'leea',
+                    text: 'Transfer',
                     bgColor: Colors.amber,
                     textColor: Colors.black,
                   ),
