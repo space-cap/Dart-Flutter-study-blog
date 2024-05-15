@@ -1,16 +1,6 @@
-# pomodoro_app
+## 📱 Pomodoro App
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- 주요 기능: start, pause, restart
+- 25분 타이머가 지난 후에는 Pomodors 숫자 1 증가
+  <br>
+  ![pomodoro app](https://github.com/space-cap/Dart-Flutter-study-blog/assets/169221883/022a974f-1284-40b6-b752-1d3c0fe3423b)
