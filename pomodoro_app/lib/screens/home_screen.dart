@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -51,6 +52,14 @@ class _HomeScreenState extends State<HomeScreen> {
 
   String format(int seconds) {
     var duration = Duration(seconds: seconds);
+
+    DateTime durationDate = DateTime.fromMillisecondsSinceEpoch(seconds);
+    String lee = DateFormat('mm:ss').format(durationDate);
+    print('lee: $lee');
+
+    String sDuration =
+        "${duration.inMinutes.remainder(60)}:${(duration.inSeconds.remainder(60))}";
+    print('lee2: $sDuration');
 
     print(duration.toString());
     return duration.toString().split(".").first.substring(2, 7);
