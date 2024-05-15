@@ -40,3 +40,10 @@ doc/api/
 /stateful_widget/linux
 /stateful_widget/android
 /stateful_widget/test
+/pomodoro_app/web
+/pomodoro_app/windows
+/pomodoro_app/macos
+/pomodoro_app/linux
+/pomodoro_app/ios
+/pomodoro_app/android
+/pomodoro_app/test
