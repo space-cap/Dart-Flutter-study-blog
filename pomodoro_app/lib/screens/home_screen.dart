@@ -139,6 +139,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ? Icons.pause_circle_outline
                         : Icons.play_circle_outline),
                   ),
+                  // reset 버튼 추가.
                   IconButton(
                     iconSize: 60,
                     color: Theme.of(context).cardColor,
