@@ -1,13 +1,41 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
+}
+
+extension DurationFormatter on Duration {
+  /// Returns a day, hour, minute, second string representation of this `Duration`.
+  ///
+  ///
+  /// Returns a string with days, hours, minutes, and seconds in the
+  /// following format: `dd:HH:MM:SS`. For example,
+  ///
+  ///   var d = new Duration(days:19, hours:22, minutes:33);
+  ///    d.dayHourMinuteSecondFormatted();  // "19:22:33:00"
+  String dayHourMinuteSecondFormatted() {
+    toString();
+    return [
+      inDays,
+      inHours.remainder(24),
+      inMinutes.remainder(60),
+      inSeconds.remainder(60)
+    ].map((seg) {
+      return seg.toString().padLeft(2, '0');
+    }).join(':');
+  }
+
+  String minuteSecondFormatted() {
+    toString();
+    return [inMinutes.remainder(60), inSeconds.remainder(60)].map((seg) {
+      return seg.toString().padLeft(2, '0');
+    }).join(':');
+  }
 }
 
 class _HomeScreenState extends State<HomeScreen> {
@@ -53,16 +81,14 @@ class _HomeScreenState extends State<HomeScreen> {
   String format(int seconds) {
     var duration = Duration(seconds: seconds);
 
-    DateTime durationDate = DateTime.fromMillisecondsSinceEpoch(seconds);
-    String lee = DateFormat('mm:ss').format(durationDate);
-    print('lee: $lee');
+    //var minuteSecondFormat = duration.minuteSecondFormatted();
+    //print(minuteSecondFormat);
 
-    String sDuration =
-        "${duration.inMinutes.remainder(60)}:${(duration.inSeconds.remainder(60))}";
-    print('lee2: $sDuration');
+    print(
+        "${duration.inMinutes.remainder(60)}:${(duration.inSeconds.remainder(60)).toString().padLeft(2, '0')}");
 
-    print(duration.toString());
-    return duration.toString().split(".").first.substring(2, 7);
+    return "${duration.inMinutes.remainder(60)}:${(duration.inSeconds.remainder(60)).toString().padLeft(2, '0')}";
+    //return minuteSecondFormat;
   }
 
   @override
