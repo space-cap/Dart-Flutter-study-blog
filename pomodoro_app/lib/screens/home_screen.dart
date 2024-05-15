@@ -89,6 +89,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return "${duration.inMinutes.remainder(60)}:${(duration.inSeconds.remainder(60)).toString().padLeft(2, '0')}";
     //return minuteSecondFormat;
+    //return duration.toString().substring(2, 7);
   }
 
   @override
