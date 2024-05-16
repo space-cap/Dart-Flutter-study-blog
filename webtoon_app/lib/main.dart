@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:webtoon_app/screens/home_screen.dart';
+import 'package:webtoon_app/services/api_service.dart';
 
 void main() {
+  ApiService.getTodaysToons();
   runApp(const MyApp());
 }
 
@@ -10,17 +13,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          elevation: 10,
-          backgroundColor: Colors.amber,
-          title: const Text('Hello flutter!'),
-        ),
-        body: const Center(
-          child: Text('Hello World!'),
-        ),
-      ),
+    // material(구글) 또는 cupertino(ios) 위젯을 return
+    return const MaterialApp(
+      home: HomeScreen(),
     );
   }
 }
