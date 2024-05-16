@@ -54,12 +54,16 @@ class HomeScreen extends StatelessWidget {
       itemBuilder: (context, index) {
         print(index);
         var webtoon = snapshot.data![index];
-        print(webtoon.thumb);
+        //print(webtoon.thumb);
         return Column(
           children: [
             Image.network(
               webtoon.thumb,
+              headers: const {
+                'Referer': 'https://comic.naver.com',
+              },
               errorBuilder: (context, error, stackTrace) {
+                print(error);
                 return const Text('error');
               },
             ),
