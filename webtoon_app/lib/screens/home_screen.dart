@@ -27,23 +27,49 @@ class HomeScreen extends StatelessWidget {
         future: webtoons,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            return ListView.separated(
-              scrollDirection: Axis.horizontal,
-              itemCount: snapshot.data!.length,
-              itemBuilder: (context, index) {
-                print(index);
-                var webtoon = snapshot.data![index];
-                return Text(webtoon.title);
-              },
-              separatorBuilder: (context, index) => const SizedBox(
-                width: 20,
-              ),
+            return Column(
+              children: [
+                const SizedBox(
+                  height: 50,
+                ),
+                Expanded(
+                  // expanded를 넣어줘야 height 에러가 뜨지 않는다.
+                  child: makeList(snapshot),
+                ),
+              ],
             );
           }
           return const Center(
             child: CircularProgressIndicator(),
           );
         },
+      ),
+    );
+  }
+
+  ListView makeList(AsyncSnapshot<List<WebtoonModel>> snapshot) {
+    return ListView.separated(
+      scrollDirection: Axis.horizontal,
+      itemCount: snapshot.data!.length,
+      itemBuilder: (context, index) {
+        print(index);
+        var webtoon = snapshot.data![index];
+        print(webtoon.thumb);
+        return Column(
+          children: [
+            Image.network(
+              webtoon.thumb,
+              errorBuilder: (context, error, stackTrace) {
+                return const Text('error');
+              },
+            ),
+            Text(webtoon.title),
+          ],
+        );
+      },
+      // 아이템들 사이의 간격을 준다.
+      separatorBuilder: (context, index) => const SizedBox(
+        width: 20,
       ),
     );
   }
