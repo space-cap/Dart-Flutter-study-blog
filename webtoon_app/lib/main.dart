@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:webtoon_app/screens/home_screen.dart';
-import 'package:webtoon_app/services/api_service.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // material(구글) 또는 cupertino(ios) 위젯을 return
-    return const MaterialApp(
+    return MaterialApp(
       home: HomeScreen(),
     );
   }
