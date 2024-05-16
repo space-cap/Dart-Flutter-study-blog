@@ -47,3 +47,10 @@ doc/api/
 /pomodoro_app/ios
 /pomodoro_app/android
 /pomodoro_app/test
+/webtoon_app/android
+/webtoon_app/ios
+/webtoon_app/linux
+/webtoon_app/macos
+/webtoon_app/test
+/webtoon_app/web
+/webtoon_app/windows
