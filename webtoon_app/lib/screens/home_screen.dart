@@ -57,17 +57,33 @@ class HomeScreen extends StatelessWidget {
         //print(webtoon.thumb);
         return Column(
           children: [
-            Image.network(
-              webtoon.thumb,
-              headers: const {
-                'Referer': 'https://comic.naver.com',
-              },
-              errorBuilder: (context, error, stackTrace) {
-                print(error);
-                return const Text('error');
-              },
+            Container(
+              width: 250,
+              clipBehavior: Clip.hardEdge,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Image.network(
+                webtoon.thumb,
+                headers: const {
+                  'Referer': 'https://comic.naver.com',
+                },
+                errorBuilder: (context, error, stackTrace) {
+                  print(error);
+                  return const Text('error');
+                },
+              ),
             ),
-            Text(webtoon.title),
+            const SizedBox(
+              height: 10,
+            ),
+            Text(
+              webtoon.title,
+              style: const TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
           ],
         );
       },
