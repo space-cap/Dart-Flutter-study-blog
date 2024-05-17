@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:webtoon_app/models/webtoon_detail_model.dart';
 import 'package:webtoon_app/models/webtoon_episode_model.dart';
 import 'package:webtoon_app/services/api_service.dart';
@@ -29,6 +30,11 @@ class _DetailScreenState extends State<DetailScreen> {
     // argument를 요구하는 경우 screen을 Stateful로 만들고 initState안에 넣는 작업이 필요하다.
     webtoon = ApiService.getToonById(widget.id);
     episodes = ApiService.getLatestEpisodesById(widget.id);
+  }
+
+  void onButtonTab() async {
+    final url = Uri.parse("https://google.com");
+    await launchUrl(url);
   }
 
   @override
@@ -144,7 +150,9 @@ class _DetailScreenState extends State<DetailScreen> {
                                     Flexible(
                                       fit: FlexFit.loose,
                                       child: Text(
-                                        episode.title,
+                                        episode.title
+                                            .replaceAll('&lt;', '<')
+                                            .replaceAll('&gt;', '>'),
                                         style: const TextStyle(
                                           color: Colors.white,
                                           fontSize: 14,
