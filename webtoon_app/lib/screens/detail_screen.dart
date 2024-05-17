@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:webtoon_app/models/webtoon_detail_model.dart';
 import 'package:webtoon_app/models/webtoon_episode_model.dart';
 import 'package:webtoon_app/services/api_service.dart';
@@ -128,11 +129,20 @@ class _DetailScreenState extends State<DetailScreen> {
                       children: [
                         for (var episode in snapshot.data!)
                           Container(
-                            child: Row(
-                              children: [
-                                Text(episode.title),
-                                const Icon(Icons.chevron_right_outlined),
-                              ],
+                            decoration: BoxDecoration(
+                              color: Colors.green.shade300,
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                vertical: 5,
+                                horizontal: 5,
+                              ),
+                              child: Row(
+                                children: [
+                                  Text(episode.title),
+                                  const Icon(Icons.chevron_right_outlined),
+                                ],
+                              ),
                             ),
                           ),
                       ],
