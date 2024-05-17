@@ -93,11 +93,25 @@ class _DetailScreenState extends State<DetailScreen> {
               if (snapshot.hasData) {
                 return Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 50),
-                  child: Text(
-                    snapshot.data!.about,
-                    style: const TextStyle(
-                      fontSize: 16,
-                    ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        snapshot.data!.about,
+                        style: const TextStyle(
+                          fontSize: 16,
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 25,
+                      ),
+                      Text(
+                        snapshot.data!.genre,
+                        style: const TextStyle(
+                          fontSize: 16,
+                        ),
+                      ),
+                    ],
                   ),
                 );
               }
