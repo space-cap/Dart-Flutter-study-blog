@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 import 'package:webtoon_app/models/webtoon_detail_model.dart';
 import 'package:webtoon_app/models/webtoon_episode_model.dart';
 import 'package:webtoon_app/services/api_service.dart';
@@ -33,8 +34,7 @@ class _DetailScreenState extends State<DetailScreen> {
   }
 
   void onButtonTab() async {
-    final url = Uri.parse("https://google.com");
-    await launchUrl(url);
+    await launchUrlString("https://google.com");
   }
 
   @override
