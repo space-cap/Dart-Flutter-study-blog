@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="pomodoro_app_v3"
+        android:label="뽀모도로"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
