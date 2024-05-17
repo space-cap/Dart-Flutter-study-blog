@@ -5,6 +5,7 @@ import 'package:url_launcher/url_launcher_string.dart';
 import 'package:webtoon_app/models/webtoon_detail_model.dart';
 import 'package:webtoon_app/models/webtoon_episode_model.dart';
 import 'package:webtoon_app/services/api_service.dart';
+import 'package:webtoon_app/widgets/episode_widget.dart';
 
 class DetailScreen extends StatefulWidget {
   final String title, thumb, id;
@@ -31,10 +32,6 @@ class _DetailScreenState extends State<DetailScreen> {
     // argument를 요구하는 경우 screen을 Stateful로 만들고 initState안에 넣는 작업이 필요하다.
     webtoon = ApiService.getToonById(widget.id);
     episodes = ApiService.getLatestEpisodesById(widget.id);
-  }
-
-  void onButtonTab() async {
-    await launchUrlString("https://google.com");
   }
 
   @override
@@ -132,41 +129,9 @@ class _DetailScreenState extends State<DetailScreen> {
                       return Column(
                         children: [
                           for (var episode in snapshot.data!)
-                            Container(
-                              margin: const EdgeInsets.only(bottom: 10),
-                              decoration: BoxDecoration(
-                                color: Colors.green.shade300,
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsets.symmetric(
-                                  vertical: 5,
-                                  horizontal: 5,
-                                ),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Flexible(
-                                      fit: FlexFit.loose,
-                                      child: Text(
-                                        episode.title
-                                            .replaceAll('&lt;', '<')
-                                            .replaceAll('&gt;', '>'),
-                                        style: const TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 14,
-                                        ),
-                                        softWrap: false,
-                                      ),
-                                    ),
-                                    const Icon(
-                                      Icons.chevron_right_outlined,
-                                      color: Colors.white,
-                                    ),
-                                  ],
-                                ),
-                              ),
+                            Episode(
+                              episode: episode,
+                              webtoonId: widget.id,
                             ),
                         ],
                       );
