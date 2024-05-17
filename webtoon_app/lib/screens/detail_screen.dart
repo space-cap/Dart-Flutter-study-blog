@@ -106,7 +106,7 @@ class _DetailScreenState extends State<DetailScreen> {
                         height: 25,
                       ),
                       Text(
-                        snapshot.data!.genre,
+                        '${snapshot.data!.genre} / ${snapshot.data!.age}',
                         style: const TextStyle(
                           fontSize: 16,
                         ),
