@@ -118,6 +118,21 @@ class _DetailScreenState extends State<DetailScreen> {
               return const Text("...");
             },
           ),
+          const SizedBox(
+            height: 25,
+          ),
+          FutureBuilder(
+              future: episodes,
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  return Column(
+                    children: [
+                      for (var episode in snapshot.data!) Text(episode.title),
+                    ],
+                  );
+                }
+                return Container();
+              }),
         ],
       ),
     );
