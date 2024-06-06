@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:accessibility_tools/accessibility_tools.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,7 +12,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      builder: (context, child) {
+        // Add AccessibilityTools to the widget tree. The tools are available
+        // only in debug mode
+        return AccessibilityTools(
+          checkFontOverflows: true,
+          checkImageLabels: true,
+          child: child,
+        );
+      },
       title: 'Flutter Demo',
+      showSemanticsDebugger: true,
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -32,6 +43,9 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      //localizationsDelegates: localizationDelegates,
+      //supportedLocales: supportedLocales,
+      debugShowCheckedModeBanner: true,
     );
   }
 }

@@ -117,6 +117,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Container(
               alignment: Alignment.bottomCenter,
               child: Text(
+                semanticsLabel: 'the remaining seconds',
                 format(totalSecond),
                 style: TextStyle(
                   color: Theme.of(context).cardColor,
@@ -169,6 +170,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
+                            semanticsLabel: 'pomodoros',
                             'Pomodoros',
                             style: TextStyle(
                               fontSize: 30,
@@ -180,6 +182,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           ),
                           Text(
+                            semanticsLabel: 'Number of Successes',
                             '$totalPomodoros',
                             style: TextStyle(
                               fontSize: 30,
